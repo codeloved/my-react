@@ -6,8 +6,9 @@ class App extends Component {
     console.log('click app')
   }
   render() {
+    const promise1111 = new Promise()
     return(
-      <div className='app'>app pages</div>
+      <div className='app11111'>app pages</div>
     )
   }
 }
