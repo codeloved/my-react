@@ -1,14 +1,29 @@
 import React, { Component } from 'react'
-// import './app.css'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
+import Header from '../layouts/header'
+import LoadbeAbout from '../about/loadableAbout'
+import Home from '../home/home'
+import LoadableTopics from '../topics/loadableTopics'
+import NotFound from '../error/404'
+
+import './app.css'
 
 class App extends Component {
-  clickApp = () => {
-    console.log('click app')
-  }
   render() {
-    const promise1111 = new Promise()
+    //Route会给组件传递history, match, location, 使用代码分割时,一定要注意将此属性传递下去
     return(
-      <div className='app11111'>app pages</div>
+      <Router>
+        <div>
+          <Header />
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/about' component={LoadbeAbout} />
+            <Route path='/topics' component={LoadableTopics} ></Route>
+            <Route component={NotFound}></Route>
+          </Switch>
+        </div>
+      </Router>
     )
   }
 }
