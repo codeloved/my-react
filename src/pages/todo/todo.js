@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { addTodo } from '../../action/todo/todoAction'
+import { addTodo, userFetchRequest } from '../../action/todo/todoAction'
 
 class Todo extends Component {
 
@@ -17,9 +17,15 @@ class Todo extends Component {
     }))
   }
 
+  clickSaga = () => {
+    const { dispatch } = this.props
+    dispatch(userFetchRequest({
+      userId: 5
+    }))
+  }
+
   render() {
-    console.log('props', this.props)
-    const { todo } = this.props
+    const { todo, userName } = this.props
     return(
       <div>
         <div>
@@ -29,17 +35,19 @@ class Todo extends Component {
             ))
           }
         </div>
+        <div>userName: {userName}</div>
         <div onClick={this.clickAction}>+</div>
+        <div onClick={this.clickSaga}>测试saga</div>
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  console.log('object', state)
   return {
     visibilityFilters: state.todo.visibilityFilters,
-    todo: state.todo.todo
+    todo: state.todo.todo,
+    userName: state.todo.userName
   }
 }
 

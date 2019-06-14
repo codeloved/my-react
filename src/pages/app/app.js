@@ -8,6 +8,7 @@ import Home from '../home/home'
 import LoadableTopics from '../topics/loadableTopics'
 import NotFound from '../error/404'
 import Todo from '../todo/todo'
+import Login from '../login/login'
 
 import store from '../../store/store'
 
@@ -26,6 +27,7 @@ class App extends Component {
               <Route path='/about' component={LoadbeAbout} />
               <Route path='/topics' component={LoadableTopics} ></Route>
               <Route path='/todo' component={Todo}></Route>
+              <Route path='/login' component={Login} ></Route>
               <Route component={NotFound}></Route>
             </Switch>
           </div>

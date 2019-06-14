@@ -2,6 +2,8 @@
 export const ADD_TODO = 'ADD_TODO_todoAction'
 export const TOGGER_TODO = 'TOGGER_TODO_todoAction'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER_todoAction'
+export const USER_FETCH_REQUEST = 'USER_FETCH_REQUEST_todoAction'
+export const USER_REQUEST_SUCCESS = 'USER_REQUEST_SUCCESS_todoAction'
 
 // 其他常量
 export const VisibilityFilters = {
@@ -24,5 +26,15 @@ export const toggerTodo = (payload) => ({
 
 export const setVisibilityFilter = (payload) => ({
   type: SET_VISIBILITY_FILTER,
+  payload
+})
+
+export const userFetchRequest = (payload) => ({
+  type: USER_FETCH_REQUEST,
+  payload
+})
+
+export const userRequestSuccess = (payload) => ({
+  type: USER_REQUEST_SUCCESS,
   payload
 })

@@ -2,12 +2,14 @@ import {
   VisibilityFilters,
   ADD_TODO,
   TOGGER_TODO,
+  USER_REQUEST_SUCCESS,
   SET_VISIBILITY_FILTER
  } from '../../action/todo/todoAction'
 
 const initState = {
   visibilityFilters: VisibilityFilters.SHOW_ALL,
-  todo: []
+  todo: [],
+  userName: ''
 }
 
 export const todo = (state = initState, action) => {
@@ -27,6 +29,11 @@ export const todo = (state = initState, action) => {
             complete: action.payload.complete
           }
         ]
+      }
+    case USER_REQUEST_SUCCESS: 
+      return {
+        ...state,
+        userName: action.payload.userName
       }
     default: 
       return state 
