@@ -16,5 +16,5 @@ for (const saga in indexSage) {
   }
 }
 
-// 引用后会执行整个模块,所以sagaMiddleware.run(mySaga)会执行
+// 引用后会执行整个模块,这个模块都会被打包进去,加载时执行,所以sagaMiddleware.run(mySaga)会执行
 export default store
